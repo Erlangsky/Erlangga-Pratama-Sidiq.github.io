@@ -1,2 +1,2 @@
 # Erlangga-Pratama-Sidiq.github.io
-my mini project
+this should be add more my portofolio
