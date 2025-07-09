@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo PWA</title>
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <meta name="theme-color" content="#4CAF50"/> <link rel="apple-touch-icon" href="/images/icon-192x192.png"> 
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e9; /* Light green background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        main {
+            flex-grow: 1;
+            padding: 100px 20px 20px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PWA Tes</h1>
+    </header>
+    <main>
+        <p>Anda bisa "menginstal" aplikasi ini ke perangkat Anda!</p>
+        <p>Cari opsi "Add to Home Screen" atau "Instal Aplikasi" di menu browser Anda.</p>
+    </main>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js') // Pastikan path ini benar!
+                    .then(registration => {
+                        console.log('Service Worker berhasil didaftarkan untuk instalasi PWA:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Pendaftaran Service Worker gagal:', error);
+                    });
+            });
+        } else {
+            console.warn('Browser tidak mendukung Service Worker. PWA tidak dapat diinstal.');
+        }
+    </script>
+</body>
+</html>

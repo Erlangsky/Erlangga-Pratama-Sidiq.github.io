@@ -1,0 +1,13 @@
+{
+  "name": "PWA Web Application",
+  "short_name": "InstaApp",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "image.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
